@@ -1,0 +1,27 @@
+This is the code for the backend.
+
+It is a simple fast API application
+
+We have two entry points:
+/search = called with a GET and allow us to have the values for a specific metric or an aggregation by time.
+/metrics = called with a POST. It allows the user to add a metric from its frontend.
+
+
+Datastore:
+We decided to store the data in an Elasticsearch and to query from it.
+To initialize the ES, We created a script into the folder init.
+It is used to init the index and to put some data.
+
+The structure is very simple :
+metrics: {name, value, timestamp}
+
+We choosed to use ES because when using metrics, we would like to have some avg and the use of ES is easy for this.
+
+It is not the only technical choice that could be done.
+We could use a timeserie Database like influx db for example, which is the case for prometheus / grafana. 
+
+
+How to run?
+For the dev, we use a docker image for the backend and a docker-compose to have the ES.
+to run it we have to do 
+docker-compose up. 

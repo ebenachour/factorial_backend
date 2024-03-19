@@ -1,0 +1,9 @@
+**/__pycache__/
+/config/parameters*
+/include
+/init
+/lib
+/.pytestcache
+**/**/*.pyc 
+.vscode/
+/bin

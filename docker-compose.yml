@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      - elasticsearch
+    environment:
+      - ENV=dev
+    volumes:
+      - ./:/app
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.15.2
+    ports:
+      - "9200:9200"  # Elasticsearch HTTP port
+      - "9300:9300"  # Elasticsearch TCP transport port
+    environment:
+      - discovery.type=single-node  # Run Elasticsearch in single-node mode for development
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+volumes:
+  elasticsearch_data:
+  

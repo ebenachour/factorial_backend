@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "factorial_backend"
+version = "1.0.0"
+description = "factorial_backend"
+authors = ["Emna Ben Achour "]
+readme = "README.md"
+exclude = [""]
+
+[[tool.poetry.source]]
+name = "PyPI"
+priority = "primary"
+
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.12"
+fastapi = ">=0.63,<1"
+elasticsearch = ">=8.12.1"
+uvicorn = ">=0.15,<1"
+PyYAML  = ">=6.0.1"
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = {version = "==8.1.1"}
